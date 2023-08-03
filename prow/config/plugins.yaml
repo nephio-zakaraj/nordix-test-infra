@@ -1,0 +1,48 @@
+plugins:
+  nephio-zakaraj:
+    plugins:
+    - approve
+    - assign
+    - blunderbuss
+    - help
+    - heart
+    - hold
+    - invalidcommitmsg
+    - label
+    - lgtm
+    - trigger
+    - verify-owners
+    - wip
+    - retitle
+    - override
+    - lifecycle
+  nephio-zakaraj/nordix-test-infra:
+    plugins:
+    - config-updater
+
+external_plugins:
+  nephio-zakaraj:
+  - name: needs-rebase
+    events:
+      - issue_comment
+      - pull_request
+
+config_updater:
+  maps:
+    prow/config/config.yaml:
+      name: config
+      namespace: prow
+    prow/config/plugins.yaml:
+      name: plugins
+      namespace: prow
+
+approve:
+  - repos:
+    - nephio-zakaraj/build-test
+    - nephio-zakaraj/nephio-test-prow-project
+    require_self_approval: true
+    lgtm_acts_as_approve: false
+    
+override:
+  allow_top_level_owners: true
+
