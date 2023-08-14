@@ -93,7 +93,7 @@ presubmits:
         - image: alpine
           command:
             - /bin/printenv
-  nephio-zakaraj/test-infra:
+  nephio-zakaraj/nordix-test-infra:
   - name: presubmit-test-infra-inrepoconfig-validation
     annotations:
     labels:
@@ -107,6 +107,6 @@ presubmits:
           command:
             - "checkconfig"
           args:
-            - "--plugin-config=../test-infra/prow/config/plugins.yaml"
-            - "--config-path=../test-infra/prow/config/config.yaml"
+            - "--plugin-config=../nordix-test-infra/prow/config/plugins.yaml"
+            - "--config-path=../nordix-test-infra/prow/config/config.yaml"
             - "--prow-yaml-repo-name=$(REPO_OWNER)/$(REPO_NAME)"
