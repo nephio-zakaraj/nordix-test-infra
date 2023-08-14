@@ -84,7 +84,7 @@ sinker:
 
 decorate_all_jobs: true
 presubmits:
-  nephio-project/nephio-test-prow-project:
+  nephio-zakaraj/nephio-test-prow-project:
   - name: test-presubmit
     decorate: true
     always_run: true
@@ -93,7 +93,7 @@ presubmits:
         - image: alpine
           command:
             - /bin/printenv
-  nephio-project/test-infra:
+  nephio-zakaraj/test-infra:
   - name: presubmit-test-infra-inrepoconfig-validation
     annotations:
     labels:
